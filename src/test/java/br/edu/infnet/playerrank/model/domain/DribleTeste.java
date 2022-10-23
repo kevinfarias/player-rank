@@ -11,6 +11,7 @@ public class DribleTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Drible drible1 = new Drible();
+        drible1.nome = "Drible";
         drible1.gerou_falta = true;
 
         System.out.println(drible1);

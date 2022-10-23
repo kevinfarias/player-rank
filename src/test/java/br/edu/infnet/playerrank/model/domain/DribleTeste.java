@@ -1,4 +1,4 @@
-package br.edu.infnet.playerrank;
+package br.edu.infnet.playerrank.model.domain;
 
 import br.edu.infnet.playerrank.model.domain.Drible;
 import br.edu.infnet.playerrank.model.domain.JogadorPartida;
@@ -10,9 +10,14 @@ import org.springframework.stereotype.Component;
 public class DribleTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Drible drible = new Drible();
-        drible.gerou_falta = true;
+        Drible drible1 = new Drible();
+        drible1.gerou_falta = true;
 
-        System.out.println(drible);
+        System.out.println(drible1);
+
+        Drible drible2 = new Drible();
+        drible2.gerou_falta = false;
+
+        System.out.println(drible2);
     }
 }

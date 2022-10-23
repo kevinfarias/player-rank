@@ -44,11 +44,11 @@ public class JogadorPartida {
         this.jogador = jogador;
     }
 
-    public float getPontos_total() {
+    public float getPontosTotal() {
         return pontos_total;
     }
 
-    public void setPontos_total(float pontos_total) {
+    public void setPontosTotal(float pontos_total) {
         this.pontos_total = pontos_total;
     }
 

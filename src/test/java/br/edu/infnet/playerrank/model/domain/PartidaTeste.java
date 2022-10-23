@@ -11,10 +11,10 @@ public class PartidaTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Partida partida1 = new Partida();
-        partida1.local = "Salao comunitario tapejara";
-        partida1.data = new Date();
-        partida1.time1 = "Casados";
-        partida1.time2 = "Solteiros";
+        partida1.setLocal("Salao comunitario tapejara");
+        partida1.setData(new Date());
+        partida1.setTime1("Casados");
+        partida1.setTime2("Solteiros");
 
         System.out.println(partida1);
     }

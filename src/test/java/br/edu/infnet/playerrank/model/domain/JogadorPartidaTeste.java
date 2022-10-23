@@ -9,14 +9,14 @@ public class JogadorPartidaTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         JogadorPartida jogadorPartida1 = new JogadorPartida();
-        jogadorPartida1.vencedor = true;
-        jogadorPartida1.pontos_total = 10;
+        jogadorPartida1.setVencedor(true);
+        jogadorPartida1.setPontosTotal(10);
 
         System.out.println(jogadorPartida1);
 
         JogadorPartida jogadorPartida2 = new JogadorPartida();
-        jogadorPartida2.vencedor = false;
-        jogadorPartida2.pontos_total = 20;
+        jogadorPartida2.setVencedor(false);
+        jogadorPartida2.setPontosTotal(20);
 
         System.out.println(jogadorPartida2);
     }

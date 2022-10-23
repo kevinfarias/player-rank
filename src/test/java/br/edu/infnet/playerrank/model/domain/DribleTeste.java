@@ -11,13 +11,13 @@ public class DribleTeste implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Drible drible1 = new Drible();
-        drible1.nome = "Drible";
-        drible1.gerou_falta = true;
+        drible1.setNome("Drible");
+        drible1.setGerouFalta(true);
 
         System.out.println(drible1);
 
         Drible drible2 = new Drible();
-        drible2.gerou_falta = false;
+        drible2.setGerouFalta(false);
 
         System.out.println(drible2);
     }

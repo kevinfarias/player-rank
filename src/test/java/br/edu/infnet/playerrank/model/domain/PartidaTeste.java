@@ -4,7 +4,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Component
 public class PartidaTeste implements ApplicationRunner {
@@ -12,7 +12,7 @@ public class PartidaTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         Partida partida1 = new Partida();
         partida1.setLocal("Salao comunitario tapejara");
-        partida1.setData(new Date());
+        partida1.setData(LocalDateTime.now());
         partida1.setTime1("Casados");
         partida1.setTime2("Solteiros");
 

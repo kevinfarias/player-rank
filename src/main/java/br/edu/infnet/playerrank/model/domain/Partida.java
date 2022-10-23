@@ -1,11 +1,11 @@
 package br.edu.infnet.playerrank.model.domain;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Partida {
     private String local;
 
-    private Date data;
+    private LocalDateTime data;
 
     private String time1;
 
@@ -24,11 +24,11 @@ public class Partida {
         this.local = local;
     }
 
-    public Date getData() {
+    public LocalDateTime getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 

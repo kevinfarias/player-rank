@@ -47,4 +47,8 @@ public class Partida {
     public void setTime2(String time2) {
         this.time2 = time2;
     }
+
+    public Partida() {
+        data = LocalDateTime.now();
+    }
 }

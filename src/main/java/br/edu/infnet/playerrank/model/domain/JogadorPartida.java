@@ -1,6 +1,9 @@
 package br.edu.infnet.playerrank.model.domain;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JogadorPartida {
     private int codigo;
 
@@ -11,6 +14,8 @@ public class JogadorPartida {
     private Jogador jogador;
 
     private float pontos_total;
+
+    private List<Acao> acoes;
 
     public int getCodigo() {
         return codigo;
@@ -54,6 +59,19 @@ public class JogadorPartida {
 
     @Override
     public String toString() {
-        return partida + ";" + vencedor + ";" + jogador + ";" + pontos_total;
+        return partida + ";" + vencedor + ";" + jogador + ";" + pontos_total + ";Jogador: " + jogador + ";Acoes: " + acoes.size();
     }
+
+    public List<Acao> getAcoes() {
+        return acoes;
+    }
+
+    public void setAcoes(List<Acao> acoes) {
+        this.acoes = acoes;
+    }
+
+    public JogadorPartida() {
+        this.acoes = new ArrayList<Acao>();
+    }
+
 }

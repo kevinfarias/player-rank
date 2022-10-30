@@ -13,6 +13,7 @@
                <th scope="col">Foi vencedor?</th>
                <th scope="col">Pontos Total</th>
                <th scope="col">Qtd. Acoes</th>
+               <th scope="col">Acoes</th>
             </tr>
          </thead>
          <tbody>
@@ -22,6 +23,7 @@
                <td th:text="${jogadorPartida.isVencedor() ? 'Sim' : 'Nao'}"></td>
                <td th:text="${jogadorPartida.getPontosTotal()}"></td>
                <td th:text="${jogadorPartida.getAcoes().size()}"></td>
+               <td><a th:href="@{/jogadorpartida/{id}/excluir(id=${jogadorPartida.getId()})}">excluir</a></td>
             </tr>
          </tbody>
       </table>

@@ -1,6 +1,5 @@
 package br.edu.infnet.playerrank.seeds;
 
-import br.edu.infnet.playerrank.controller.JogadorController;
 import br.edu.infnet.playerrank.controller.PasseController;
 import br.edu.infnet.playerrank.model.domain.Passe;
 import org.springframework.boot.ApplicationArguments;

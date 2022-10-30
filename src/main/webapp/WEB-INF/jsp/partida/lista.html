@@ -4,7 +4,7 @@
    lang="en"
    layout:decorate="~{templates/layout}">
    <div layout:fragment="content">
-      <h3>Dribles</h3>
+      <h3>Partidas</h3>
       <table class="table">
          <thead>
             <tr>
@@ -13,15 +13,17 @@
                <th scope="col">Data</th>
                <th scope="col">Time1</th>
                <th scope="col">Time2</th>
+               <th>Acoes</th>
             </tr>
          </thead>
          <tbody>
-            <tr th:each="drible, row: ${listagem}">
-               <th scope="row" th:text="${drible.id}"></th>
-               <td th:text="${drible.getLocal()}"></td>
-               <td th:text="${drible.getData()}"></td>
-               <td th:text="${drible.getTime1()}"></td>
-               <td th:text="${drible.getTime2()}"></td>
+            <tr th:each="partida, row: ${listagem}">
+               <th scope="row" th:text="${partida.id}"></th>
+               <td th:text="${partida.getLocal()}"></td>
+               <td th:text="${partida.getData()}"></td>
+               <td th:text="${partida.getTime1()}"></td>
+               <td th:text="${partida.getTime2()}"></td>
+               <td><a th:href="@{/partida/{id}/excluir(id=${partida.id})}">excluir</a></td>
             </tr>
          </tbody>
       </table>

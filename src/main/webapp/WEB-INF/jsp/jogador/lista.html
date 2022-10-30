@@ -13,6 +13,7 @@
                <th scope="col">Cidade</th>
                <th scope="col">CPF</th>
                <th scope="col">Email</th>
+               <th>Acoes</th>
             </tr>
          </thead>
          <tbody>
@@ -22,6 +23,7 @@
                <td th:text="${jogador.getCidade()}"></td>
                <td th:text="${jogador.getCPF()}"></td>
                <td th:text="${jogador.getEmail()}"></td>
+               <td><a th:href="@{/jogador/{id}/excluir(id=${jogador.id})}">excluir</a></td>
             </tr>
          </tbody>
       </table>

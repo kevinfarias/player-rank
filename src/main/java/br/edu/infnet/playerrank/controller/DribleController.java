@@ -4,21 +4,43 @@ import br.edu.infnet.playerrank.model.domain.Drible;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class DribleController {
-    private static ArrayList<Drible> listagem = new ArrayList<Drible>();
+    private static Map<Integer, Drible> mapa = new HashMap<Integer, Drible>();
+	private static Integer id = 1;
 
-    public static void incluir(Drible drible) {
-        listagem.add(drible);
-    }
+	public static void incluir(Drible drible) {
+		drible.setId(id++);
+		mapa.put(drible.getId(), drible);
 
-    @GetMapping(value = "/drible/lista")
-    public String telaLista(Model model) {
-        model.addAttribute("listagem", listagem);
+		System.out.println("> " + drible);
+	}
 
-        return "drible/lista";
-    }
+	public static void excluir(Integer id) {
+		mapa.remove(id);
+	}
+
+	public static Collection<Drible> obterLista(){
+		return mapa.values();
+	}
+
+	@GetMapping(value = "/drible/lista")
+	public String telaLista(Model model) {
+		model.addAttribute("listagem", obterLista());
+
+		return "drible/lista";
+	}
+
+	@GetMapping(value = "/drible/{id}/excluir")
+	public String exclusao(@PathVariable Integer id) {
+		excluir(id);
+
+		return "redirect:/drible/lista";
+	}
 }

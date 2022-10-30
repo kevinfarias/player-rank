@@ -11,13 +11,15 @@
                <th scope="col">#</th>
                <th scope="col">Correto?</th>
                <th scope="col">Gerou assistencia?</th>
+               <th scope="col">Acoes</th>
             </tr>
          </thead>
          <tbody>
-            <tr th:each="drible, row: ${listagem}">
-               <th scope="row" th:text="${drible.id}"></th>
-               <td th:text="${drible.isCorreto() ? 'Sim' : 'Nao'}"></td>
-               <td th:text="${drible.gerouAssistencia() ? 'Sim' : 'Nao'}"></td>
+            <tr th:each="passe, row: ${listagem}">
+               <th scope="row" th:text="${passe.id}"></th>
+               <td th:text="${passe.isCorreto() ? 'Sim' : 'Nao'}"></td>
+               <td th:text="${passe.gerouAssistencia() ? 'Sim' : 'Nao'}"></td>
+               <td><a th:href="@{/passe/{id}/excluir(id=${passe.id})}">excluir</a></td>
             </tr>
          </tbody>
       </table>

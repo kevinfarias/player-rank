@@ -11,6 +11,7 @@
                <th scope="col">#</th>
                <th scope="col">Completo</th>
                <th scope="col">Gerou falta?</th>
+               <th scope="col">Acoes</th>
             </tr>
          </thead>
          <tbody>
@@ -18,7 +19,8 @@
                <th scope="row" th:text="${drible.id}"></th>
                <td th:text="${drible.isCompleto() ? 'Sim' : 'Nao'}"></td>
                <td th:text="${drible.gerouFalta() ? 'Sim' : 'Nao'}"></td>
-            </tr>
+               <td><a th:href="@{/drible/{id}/excluir(id=${drible.id})}">excluir</a></td>
+           </tr>
          </tbody>
       </table>
    </div>

@@ -4,21 +4,44 @@ import br.edu.infnet.playerrank.model.domain.Partida;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class PartidaController {
-    private static ArrayList<Partida> listagem = new ArrayList<Partida>();
+	private static Map<Integer, Partida> mapa = new HashMap<Integer, Partida>();
+	private static Integer id = 1;
 
-    public static void incluir(Partida drible) {
-        listagem.add(drible);
-    }
+	public static void incluir(Partida partida) {
+		partida.setId(id++);
+		mapa.put(partida.getId(), partida);
 
-    @GetMapping(value = "/partida/lista")
-    public String telaLista(Model model) {
-        model.addAttribute("listagem", listagem);
+		System.out.println("> " + partida);
+	}
 
-        return "partida/lista";
-    }
+	public static void excluir(Integer id) {
+		mapa.remove(id);
+	}
+
+	public static Collection<Partida> obterLista(){
+		return mapa.values();
+	}
+
+	@GetMapping(value = "/partida/lista")
+	public String telaLista(Model model) {
+		model.addAttribute("listagem", obterLista());
+
+		return "partida/lista";
+	}
+
+	@GetMapping(value = "/partida/{id}/excluir")
+	public String exclusao(@PathVariable Integer id) {
+
+		excluir(id);
+
+		return "redirect:/partida/lista";
+	}
 }

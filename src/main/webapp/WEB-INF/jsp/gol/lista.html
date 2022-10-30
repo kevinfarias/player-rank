@@ -12,6 +12,7 @@
                <th scope="col">Tipo</th>
                <th scope="col">Decisivo</th>
                <th scope="col">Dificuldade</th>
+               <th>Acoes</th>
             </tr>
          </thead>
          <tbody>
@@ -20,6 +21,7 @@
                <td th:text="${gol.getTipo()?.label}"></td>
                <td th:text="${gol.isDecisivo() ? 'Sim' : 'Nao'}"></td>
                <td th:text="${gol.getDificuldade()}"></td>
+               <td><a th:href="@{/gol/{id}/excluir(id=${gol.id})}">excluir</a></td>
             </tr>
          </tbody>
       </table>

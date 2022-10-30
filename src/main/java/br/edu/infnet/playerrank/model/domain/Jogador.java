@@ -1,7 +1,7 @@
 package br.edu.infnet.playerrank.model.domain;
 
 public class Jogador {
-   private int codigo;
+   private int id;
    private String cidade;
 
    private String nome;
@@ -15,12 +15,12 @@ public class Jogador {
       return cidade + ";" + nome + ";" + cpf + ";" + email;
    }
 
-   public int getCodigo() {
-      return codigo;
+   public int getId() {
+      return id;
    }
 
-   public void setCodigo(int codigo) {
-      this.codigo = codigo;
+   public void setId(int id) {
+      this.id = id;
    }
 
    public String getCidade() {
@@ -39,11 +39,11 @@ public class Jogador {
       this.nome = nome;
    }
 
-   public String getCpf() {
+   public String getCPF() {
       return cpf;
    }
 
-   public void setCpf(String cpf) {
+   public void setCPF(String cpf) {
       this.cpf = cpf;
    }
 

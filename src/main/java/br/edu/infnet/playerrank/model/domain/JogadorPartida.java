@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JogadorPartida {
-    private int codigo;
+    private int id;
 
     private Partida partida;
 
@@ -17,12 +17,12 @@ public class JogadorPartida {
 
     private List<Acao> acoes;
 
-    public int getCodigo() {
-        return codigo;
+    public int getId() {
+        return id;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Partida getPartida() {

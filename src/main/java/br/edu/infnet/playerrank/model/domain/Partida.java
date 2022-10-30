@@ -3,6 +3,8 @@ package br.edu.infnet.playerrank.model.domain;
 import java.time.LocalDateTime;
 
 public class Partida {
+    private int id;
+
     private String local;
 
     private LocalDateTime data;
@@ -14,6 +16,14 @@ public class Partida {
     @Override
     public String toString() {
         return local + ";" + data + ";" + time1 + ";" + time2;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLocal() {

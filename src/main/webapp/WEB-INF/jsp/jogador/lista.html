@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   lang="en"
+   layout:decorate="~{templates/layout}">
+   <div layout:fragment="content">
+      <h3>Jogadores</h3>
+      <table class="table">
+         <thead>
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col">Nome</th>
+               <th scope="col">Cidade</th>
+               <th scope="col">CPF</th>
+               <th scope="col">Email</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr th:each="jogador, row: ${listagem}">
+               <th scope="row" th:text="${jogador.getId()}"></th>
+               <td th:text="${jogador.getNome()}"></td>
+               <td th:text="${jogador.getCidade()}"></td>
+               <td th:text="${jogador.getCPF()}"></td>
+               <td th:text="${jogador.getEmail()}"></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</html>

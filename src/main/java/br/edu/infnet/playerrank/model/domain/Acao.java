@@ -1,19 +1,19 @@
 package br.edu.infnet.playerrank.model.domain;
 
-abstract class Acao {
-    private int codigo;
+public abstract class Acao {
+    private int id;
     private String nome;
 
     private Float pontos;
 
     private JogadorPartida jogador_partida;
 
-    public int getCodigo() {
-        return codigo;
+    public int getId() {
+        return id;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

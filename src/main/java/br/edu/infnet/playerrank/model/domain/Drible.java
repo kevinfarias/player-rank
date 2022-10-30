@@ -13,7 +13,7 @@ public class Drible extends Acao {
         this.completo = completo;
     }
 
-    public boolean isGerouFalta() {
+    public boolean gerouFalta() {
         return gerou_falta;
     }
 

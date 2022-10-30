@@ -5,6 +5,7 @@ public class Passe extends Acao {
 
     private boolean assistencia;
 
+
     @Override
     public String toString() {
         return super.toString() + ";" + (correto ? "correto" : "incorreto") + ";" + (assistencia ? "assistencia" : "");
@@ -18,7 +19,7 @@ public class Passe extends Acao {
         this.correto = correto;
     }
 
-    public boolean isAssistencia() {
+    public boolean gerouAssistencia() {
         return assistencia;
     }
 

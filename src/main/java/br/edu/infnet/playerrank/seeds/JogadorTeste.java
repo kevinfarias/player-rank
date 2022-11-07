@@ -1,13 +1,18 @@
 package br.edu.infnet.playerrank.seeds;
 
-import br.edu.infnet.playerrank.controller.JogadorController;
 import br.edu.infnet.playerrank.model.domain.Jogador;
+import br.edu.infnet.playerrank.model.service.JogadorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
+@Order(3)
 public class JogadorTeste implements ApplicationRunner {
+    @Autowired
+    private JogadorService jogadorService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Jogador jogador1 = new Jogador();
@@ -17,7 +22,7 @@ public class JogadorTeste implements ApplicationRunner {
         jogador1.setCPF("111.111.111-11");
         jogador1.setEmail("kevin.farias.dev@gmail.com");
 
-        JogadorController.incluir(jogador1);
+        jogadorService.incluir(jogador1);
 
         System.out.println(jogador1);
 
@@ -28,7 +33,7 @@ public class JogadorTeste implements ApplicationRunner {
         jogador2.setCPF("111.112.112-11");
         jogador2.setEmail("abcd@gmail.com");
 
-        JogadorController.incluir(jogador2);
+        jogadorService.incluir(jogador2);
 
         System.out.println(jogador2);
     }

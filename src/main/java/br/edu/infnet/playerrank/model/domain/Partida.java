@@ -1,8 +1,13 @@
 package br.edu.infnet.playerrank.model.domain;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "tpartida")
 public class Partida {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String local;
@@ -12,6 +17,10 @@ public class Partida {
     private String time1;
 
     private String time2;
+
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     @Override
     public String toString() {
@@ -60,5 +69,13 @@ public class Partida {
 
     public Partida() {
         data = LocalDateTime.now();
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

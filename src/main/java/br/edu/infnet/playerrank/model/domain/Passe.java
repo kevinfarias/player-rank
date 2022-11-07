@@ -1,5 +1,10 @@
 package br.edu.infnet.playerrank.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tpasse")
 public class Passe extends Acao {
     private boolean correto;
 

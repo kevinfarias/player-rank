@@ -1,14 +1,21 @@
 package br.edu.infnet.playerrank.seeds;
 
-import br.edu.infnet.playerrank.controller.GolController;
 import br.edu.infnet.playerrank.model.domain.Gol;
+import br.edu.infnet.playerrank.model.domain.JogadorPartida;
 import br.edu.infnet.playerrank.model.domain.enums.TipoDeGol;
+import br.edu.infnet.playerrank.model.service.GolService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
+@Order(6)
 public class GolTeste implements ApplicationRunner {
+    @Autowired
+    private GolService golService;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("### Inserindo gols");
@@ -20,7 +27,12 @@ public class GolTeste implements ApplicationRunner {
         gol1.setDecisivo(true);
         gol1.setDificuldade(7);
 
-        GolController.incluir(gol1);
+        JogadorPartida jogadorPartida = new JogadorPartida();
+        jogadorPartida.setId(1);
+
+        gol1.setJogadorPartida(jogadorPartida);
+
+        golService.incluir(gol1);
 
         System.out.println("Gol - " + gol1);
 
@@ -31,7 +43,9 @@ public class GolTeste implements ApplicationRunner {
         gol2.setDecisivo(false);
         gol2.setDificuldade(1);
 
-        GolController.incluir(gol2);
+        gol2.setJogadorPartida(jogadorPartida);
+
+        golService.incluir(gol2);
 
         System.out.println("Gol - " + gol2);
 
@@ -42,7 +56,9 @@ public class GolTeste implements ApplicationRunner {
         gol3.setDecisivo(false);
         gol3.setDificuldade(6);
 
-        GolController.incluir(gol3);
+        gol3.setJogadorPartida(jogadorPartida);
+
+        golService.incluir(gol3);
 
         System.out.println("Gol - " + gol3);
 
@@ -53,7 +69,9 @@ public class GolTeste implements ApplicationRunner {
         gol4.setDecisivo(false);
         gol4.setDificuldade(5);
 
-        GolController.incluir(gol4);
+        gol4.setJogadorPartida(jogadorPartida);
+
+        golService.incluir(gol4);
 
         System.out.println("Gol - " + gol4);
     }

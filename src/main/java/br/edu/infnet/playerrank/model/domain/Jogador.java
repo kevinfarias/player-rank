@@ -1,7 +1,18 @@
 package br.edu.infnet.playerrank.model.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tjogador")
 public class Jogador {
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    private int id;
+
+   @ManyToOne
+   @JoinColumn(name = "idUsuario")
+   private Usuario usuario;
+
    private String cidade;
 
    private String nome;
@@ -53,5 +64,13 @@ public class Jogador {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   public Usuario getUsuario() {
+      return usuario;
+   }
+
+   public void setUsuario(Usuario usuario) {
+      this.usuario = usuario;
    }
 }

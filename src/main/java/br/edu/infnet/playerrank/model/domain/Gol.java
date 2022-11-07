@@ -2,6 +2,12 @@ package br.edu.infnet.playerrank.model.domain;
 
 import br.edu.infnet.playerrank.model.domain.enums.TipoDeGol;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "tgol")
 public class Gol extends Acao {
     private TipoDeGol tipo;
 

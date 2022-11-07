@@ -25,8 +25,8 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-             <li class="nav-item">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0" th:if="${user?.id}">
+                <li class="nav-item">
                   <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().equals('/') ? 'active':''}"  href="/">Home</a>
                 </li>
                 <li class="nav-item">
@@ -47,11 +47,17 @@
                 <li class="nav-item">
                   <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/passe/lista') ? 'active':''}" href="/passe/lista">Passes</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/usuario/lista') ? 'active':''}" href="/usuario/lista">Usuários</a>
+                </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-            </form>
+            <ul class="navbar-nav me-auto mb-2 mb-md-0" th:unless="${user?.id}">
+            </ul>
+            <div class="d-flex">
+              <a href="/logout" th:if="${user?.id}" class="btn btn-outline-danger" th:text="'Logout ' + ${user?.nome}"></a>&nbsp;&nbsp;
+              <a href="/usuario" th:unless="${user?.id}" class="btn btn-outline-success">Cadastrar</a>&nbsp;&nbsp;
+              <a href="/login" th:unless="${user?.id}" class="btn btn-outline-success">Login</a>
+            </div>
           </div>
         </div>
       </nav>

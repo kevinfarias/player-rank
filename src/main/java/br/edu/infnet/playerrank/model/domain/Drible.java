@@ -1,5 +1,10 @@
 package br.edu.infnet.playerrank.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tdrible")
 public class Drible extends Acao {
     private boolean completo;
 

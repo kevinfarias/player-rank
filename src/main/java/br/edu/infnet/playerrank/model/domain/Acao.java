@@ -1,11 +1,20 @@
 package br.edu.infnet.playerrank.model.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tacao")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Acao {
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
 
     private Float pontos;
 
+    @ManyToOne
+    @JoinColumn(name = "idJogadorPartida")
     private JogadorPartida jogador_partida;
 
     public int getId() {

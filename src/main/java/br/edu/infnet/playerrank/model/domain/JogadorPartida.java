@@ -1,20 +1,29 @@
 package br.edu.infnet.playerrank.model.domain;
 
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "tjogadorpartida")
 public class JogadorPartida {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @ManyToOne
+    @JoinColumn(name = "idPartida")
     private Partida partida;
 
     private boolean vencedor;
 
+    @Transient
     private Jogador jogador;
 
     private float pontos_total;
 
+    @Transient
     private List<Acao> acoes;
 
     public int getId() {

@@ -1,9 +1,11 @@
 package br.edu.infnet.playerrank.seeds;
 
-import br.edu.infnet.playerrank.controller.JogadorPartidaController;
 import br.edu.infnet.playerrank.model.domain.*;
+import br.edu.infnet.playerrank.model.service.JogadorPartidaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -11,7 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Order(4)
 public class JogadorPartidaTeste implements ApplicationRunner {
+    @Autowired
+    private JogadorPartidaService jogadorPartidaService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Jogador jogador = new Jogador();
@@ -45,16 +50,12 @@ public class JogadorPartidaTeste implements ApplicationRunner {
 
         Partida partida1 = new Partida();
         partida1.setId(1);
-        partida1.setLocal("Salao comunitario tapejara");
-        partida1.setData(LocalDateTime.now());
-        partida1.setTime1("Casados");
-        partida1.setTime2("Solteiros");
 
         jogadorPartida1.setPartida(partida1);
 
         jogadorPartida1.setPontosTotal(10);
 
-        JogadorPartidaController.incluir(jogadorPartida1);
+        jogadorPartidaService.incluir(jogadorPartida1);
 
         System.out.println(jogadorPartida1);
     }

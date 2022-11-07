@@ -22,7 +22,7 @@ public class JogadorPartidaTeste implements ApplicationRunner {
         Jogador jogador = new Jogador();
         jogador.setCPF("111.111.111-11");
         jogador.setNome("Kevin Farias");
-        jogador.setId(123);
+        jogador.setId(1);
 
         JogadorPartida jogadorPartida1 = new JogadorPartida();
         jogadorPartida1.setJogador(jogador);

@@ -18,7 +18,8 @@ public class JogadorPartida {
 
     private boolean vencedor;
 
-    @Transient
+    @ManyToOne
+    @JoinColumn(name = "idJogador")
     private Jogador jogador;
 
     private float pontos_total;

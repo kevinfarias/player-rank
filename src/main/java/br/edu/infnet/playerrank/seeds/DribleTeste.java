@@ -17,16 +17,16 @@ public class DribleTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        Drible drible1 = new Drible();
-//        drible1.setId(1);
-//        drible1.setNome("Drible");
-//        drible1.setGerouFalta(true);
-//
+        Drible drible1 = new Drible();
+        drible1.setId(1);
+        drible1.setNome("Drible");
+        drible1.setGerouFalta(true);
+
 //        JogadorPartida jogadorPartida = new JogadorPartida();
 //        jogadorPartida.setId(1);
 //        drible1.setJogadorPartida(jogadorPartida);
 //
-//        dribleService.incluir(drible1);
+        dribleService.incluir(drible1);
 //
 //        System.out.println(drible1);
 //

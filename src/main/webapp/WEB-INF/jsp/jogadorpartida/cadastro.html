@@ -15,8 +15,11 @@
 	      <input type="checkbox" class="form-check-input" placeholder="Vencedor da partida?" name="vencedor" id="vencedor" />
 	    </div>
 	    <div class="form-group">
-	      <label>Jogador:</label>
-	      <input type="text" class="form-control" placeholder="Digite o id do jogador" name="jogador">
+	      <label>Jogador</label>
+             <select name="jogador" id="jogador">
+                <option th:each="jogador : ${jogadores}"
+                    th:value="${jogador.id}" th:text="${jogador.nome}"></option>
+            </select>
 	    </div>
 		<div class="mt-5"></div>
 	    <button type="submit" class="btn btn-default btn-outline-success">Cadastrar</button>

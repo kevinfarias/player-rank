@@ -17,19 +17,19 @@ public class PasseTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        Passe passe1 = new Passe();
-//        passe1.setId(1);
+        Passe passe1 = new Passe();
+        passe1.setId(1);
 //
 //        JogadorPartida jogadorPartida = new JogadorPartida();
 //        jogadorPartida.setId(1);
 //
 //        passe1.setJogadorPartida(jogadorPartida);
-//        passe1.setAssistencia(true);
-//        passe1.setCorreto(true);
+        passe1.setAssistencia(true);
+        passe1.setCorreto(true);
 //
-//        System.out.println(passe1);
+        System.out.println(passe1);
 //
-//        passeService.incluir(passe1);
+        passeService.incluir(passe1);
 //
 //        Passe passe2 = new Passe();
 //

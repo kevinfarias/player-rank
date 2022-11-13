@@ -1,6 +1,7 @@
 package br.edu.infnet.playerrank.model.service;
 
 import br.edu.infnet.playerrank.model.domain.Gol;
+import br.edu.infnet.playerrank.model.domain.Usuario;
 import br.edu.infnet.playerrank.model.repository.GolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class GolService {
 		golRepository.deleteById(id);
 	}
 
-	public Collection<Gol> obterLista(){
-		return (Collection<Gol>) golRepository.findAll();
+	public Collection<Gol> obterLista(Usuario usuario){
+		return (Collection<Gol>) golRepository.obterLista(usuario.getId());
 	}
 }

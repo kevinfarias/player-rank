@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@Order(4)
+@Order(9)
 public class JogadorPartidaTeste implements ApplicationRunner {
     @Autowired
     private JogadorPartidaService jogadorPartidaService;
@@ -30,14 +30,17 @@ public class JogadorPartidaTeste implements ApplicationRunner {
         jogadorPartida1.setId(1);
 
         Drible drible = new Drible();
+        drible.setId(1);
         drible.setGerouFalta(true);
         drible.setNome("drible");
 
         Passe passe = new Passe();
+        passe.setId(1);
         passe.setNome("lançamento");
         passe.setCorreto(true);
 
         Gol gol = new Gol();
+        gol.setId(1);
         gol.setDificuldade(10);
         gol.setNome("Gol de placa");
 

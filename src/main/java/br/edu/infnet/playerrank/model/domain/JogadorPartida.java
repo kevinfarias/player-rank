@@ -16,10 +16,7 @@ public class JogadorPartida {
     @JoinColumn(name = "idPartida")
     private Partida partida;
 
-    @OneToMany(
-            mappedBy = "jogador_partida",
-            cascade = CascadeType.ALL
-    )
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Acao> acoes;
 
     private boolean vencedor;
@@ -31,6 +28,14 @@ public class JogadorPartida {
     @ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     private float pontos_total;
 

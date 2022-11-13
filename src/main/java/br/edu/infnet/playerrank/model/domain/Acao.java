@@ -1,6 +1,7 @@
 package br.edu.infnet.playerrank.model.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tacao")
@@ -13,9 +14,20 @@ public abstract class Acao {
 
     private Float pontos;
 
-    @ManyToOne
-    @JoinColumn(name = "idJogadorPartida")
-    private JogadorPartida jogador_partida;
+    @ManyToMany(mappedBy = "acoes")
+	private List<JogadorPartida> jogador_partida;
+
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public int getId() {
         return id;
@@ -41,11 +53,11 @@ public abstract class Acao {
         this.pontos = pontos;
     }
 
-    public JogadorPartida getJogadorPartida() {
+    public List<JogadorPartida> getJogadorPartida() {
         return jogador_partida;
     }
 
-    public void setJogadorPartida(JogadorPartida jogador_partida) {
+    public void setJogadorPartida(List<JogadorPartida> jogador_partida) {
         this.jogador_partida = jogador_partida;
     }
 

@@ -1,14 +1,12 @@
 package br.edu.infnet.playerrank.controller;
 
 import br.edu.infnet.playerrank.model.domain.Passe;
+import br.edu.infnet.playerrank.model.domain.Usuario;
 import br.edu.infnet.playerrank.model.service.PasseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 @SessionAttributes("user")
 @Controller
@@ -17,8 +15,8 @@ public class PasseController {
 	private PasseService passeService;
 
 	@GetMapping(value = "/passe/lista")
-	public String telaLista(Model model) {
-		model.addAttribute("listagem", passeService.obterLista());
+	public String telaLista(Model model, @SessionAttribute("user")Usuario usuario) {
+		model.addAttribute("listagem", passeService.obterLista(usuario));
 
 		return "passe/lista";
 	}
@@ -36,7 +34,8 @@ public class PasseController {
 	}
 
 	@PostMapping(value = "/passe")
-	public String incluir(Passe passe) {
+	public String incluir(Passe passe, @SessionAttribute("user") Usuario usuario) {
+		passe.setUsuario(usuario);
 		passeService.incluir(passe);
 
 		return "redirect:/passe/lista";

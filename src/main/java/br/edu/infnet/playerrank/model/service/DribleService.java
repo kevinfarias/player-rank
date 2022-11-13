@@ -1,6 +1,7 @@
 package br.edu.infnet.playerrank.model.service;
 
 import br.edu.infnet.playerrank.model.domain.Drible;
+import br.edu.infnet.playerrank.model.domain.Usuario;
 import br.edu.infnet.playerrank.model.repository.DribleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class DribleService {
 		dribleRepository.deleteById(id);
 	}
 
-	public Collection<Drible> obterLista(){
-		return (Collection<Drible>) dribleRepository.findAll();
+	public Collection<Drible> obterLista(Usuario usuario){
+		return (Collection<Drible>) dribleRepository.obterLista(usuario.getId());
 	}
 }

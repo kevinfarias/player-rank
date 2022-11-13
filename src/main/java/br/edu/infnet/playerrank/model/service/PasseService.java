@@ -1,6 +1,7 @@
 package br.edu.infnet.playerrank.model.service;
 
 import br.edu.infnet.playerrank.model.domain.Passe;
+import br.edu.infnet.playerrank.model.domain.Usuario;
 import br.edu.infnet.playerrank.model.repository.PasseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class PasseService {
 		passeRepository.deleteById(id);
 	}
 
-	public Collection<Passe> obterLista(){
-		return (Collection<Passe>) passeRepository.findAll();
+	public Collection<Passe> obterLista(Usuario usuario){
+		return (Collection<Passe>) passeRepository.obterLista(usuario.getId());
 	}
 }

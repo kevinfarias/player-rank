@@ -18,21 +18,21 @@ public class GolTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        System.out.println("### Inserindo gols");
-//
-//        Gol gol1 = new Gol();
-//        gol1.setId(1);
-//        gol1.setNome("Gol de cabeça");
-//        gol1.setTipo(TipoDeGol.CABECA);
-//        gol1.setDecisivo(true);
-//        gol1.setDificuldade(7);
+        System.out.println("### Inserindo gols");
+
+        Gol gol1 = new Gol();
+        gol1.setId(1);
+        gol1.setNome("Gol de cabeça");
+        gol1.setTipo(TipoDeGol.CABECA);
+        gol1.setDecisivo(true);
+        gol1.setDificuldade(7);
 //
 //        JogadorPartida jogadorPartida = new JogadorPartida();
 //        jogadorPartida.setId(1);
 //
 //        gol1.setJogadorPartida(jogadorPartida);
 //
-//        golService.incluir(gol1);
+        golService.incluir(gol1);
 //
 //        System.out.println("Gol - " + gol1);
 //

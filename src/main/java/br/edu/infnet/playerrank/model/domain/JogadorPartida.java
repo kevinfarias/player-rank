@@ -16,16 +16,23 @@ public class JogadorPartida {
     @JoinColumn(name = "idPartida")
     private Partida partida;
 
+    @OneToMany(
+            mappedBy = "jogador_partida",
+            cascade = CascadeType.ALL
+    )
+	private List<Acao> acoes;
+
     private boolean vencedor;
 
     @ManyToOne
     @JoinColumn(name = "idJogador")
     private Jogador jogador;
 
-    private float pontos_total;
+    @ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 
-    @Transient
-    private List<Acao> acoes;
+    private float pontos_total;
 
     public int getId() {
         return id;

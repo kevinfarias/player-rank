@@ -4,7 +4,18 @@
    lang="en"
    layout:decorate="~{templates/layout}">
    <div layout:fragment="content">
-      <h2>Jogador</h2>
+
+	<form action="/cep" class="form-inline" method="post">
+
+	    <div class="form-group">
+	      <label>CEP:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o seu CEP" name="cep">
+	    </div>
+
+	    <button type="submit" class="btn btn-default">Buscar</button>
+	</form>
+
+	<h2>Usuário</h2>
 	  <form action="/usuario/incluir" method="post">
 	    <div class="form-group">
 	      <label>Nome:</label>
@@ -16,11 +27,38 @@
 	    </div>
 	    <div class="form-group">
 	      <label>Senha:</label>
-	      <input type="senha" class="form-control" placeholder="Digite sua senha" name="senha">
+	      <input type="password" class="form-control" placeholder="Entre com a sua senha" name="senha">
 	    </div>
+
+
 	    <div class="form-group">
-	      <label>CPF:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o seu CPF" name="cpf">
+	      <label>Cep:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o seu cep" th:value="${endereco.cep}" name="endereco.cep">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Logradouro:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o seu logradouro" th:value="${endereco.logradouro}" name="endereco.logradouro">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Complemento:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o seu complemento" th:value="${endereco.complemento}" name="endereco.complemento">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Bairro:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o seu bairro" th:value="${endereco.bairro}" name="endereco.bairro">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Localidade:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o seu localidade" th:value="${endereco.localidade}" name="endereco.localidade">
+	    </div>
+
+	    <div class="form-group">
+	      <label>UF:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o seu uf" th:value="${endereco.uf}" name="endereco.uf">
 	    </div>
 
 	    <button type="submit" class="btn btn-default">Cadastrar</button>

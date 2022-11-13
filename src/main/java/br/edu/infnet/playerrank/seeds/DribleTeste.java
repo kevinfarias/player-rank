@@ -17,27 +17,27 @@ public class DribleTeste implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Drible drible1 = new Drible();
-        drible1.setId(1);
-        drible1.setNome("Drible");
-        drible1.setGerouFalta(true);
-
-        JogadorPartida jogadorPartida = new JogadorPartida();
-        jogadorPartida.setId(1);
-        drible1.setJogadorPartida(jogadorPartida);
-
-        dribleService.incluir(drible1);
-
-        System.out.println(drible1);
-
-        Drible drible2 = new Drible();
-        drible2.setId(2);
-        drible2.setGerouFalta(false);
-
-        drible2.setJogadorPartida(jogadorPartida);
-
-        dribleService.incluir(drible2);
-
-        System.out.println(drible2);
+//        Drible drible1 = new Drible();
+//        drible1.setId(1);
+//        drible1.setNome("Drible");
+//        drible1.setGerouFalta(true);
+//
+//        JogadorPartida jogadorPartida = new JogadorPartida();
+//        jogadorPartida.setId(1);
+//        drible1.setJogadorPartida(jogadorPartida);
+//
+//        dribleService.incluir(drible1);
+//
+//        System.out.println(drible1);
+//
+//        Drible drible2 = new Drible();
+//        drible2.setId(2);
+//        drible2.setGerouFalta(false);
+//
+//        drible2.setJogadorPartida(jogadorPartida);
+//
+//        dribleService.incluir(drible2);
+//
+//        System.out.println(drible2);
     }
 }

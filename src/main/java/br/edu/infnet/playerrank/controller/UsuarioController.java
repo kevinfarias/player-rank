@@ -1,15 +1,13 @@
 package br.edu.infnet.playerrank.controller;
 
+import br.edu.infnet.playerrank.model.domain.Endereco;
 import br.edu.infnet.playerrank.model.domain.Usuario;
 import br.edu.infnet.playerrank.model.service.PasseService;
 import br.edu.infnet.playerrank.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 @SessionAttributes("user")
 @Controller
@@ -25,7 +23,8 @@ public class UsuarioController {
 	}
 
 	@GetMapping(value = "/usuario")
-	public String telaCadastro() {
+	public String telaCadastro(Model model) {
+		model.addAttribute("endereco", new Endereco());
 		return "usuario/cadastro";
 	}
 
@@ -41,5 +40,11 @@ public class UsuarioController {
 		usuarioService.excluir(id);
 
 		return "redirect:/usuario/lista";
+	}
+
+	@PostMapping(value = "/cep")
+	public String obterCep(Model model, @RequestParam String cep) {
+		model.addAttribute("endereco", usuarioService.obterCep(cep));
+		return "usuario/cadastro";
 	}
 }

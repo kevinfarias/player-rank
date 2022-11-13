@@ -16,8 +16,8 @@ public class JogadorController {
 	private JogadorService jogadorService;
 
 	@GetMapping(value = "/jogador/lista")
-	public String telaLista(Model model) {
-		model.addAttribute("listagem", jogadorService.obterLista());
+	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
+		model.addAttribute("listagem", jogadorService.obterLista(usuario));
 
 		return "jogador/lista";
 	}

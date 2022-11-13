@@ -2,6 +2,8 @@ package br.edu.infnet.playerrank.model.service;
 
 import java.util.Collection;
 
+import br.edu.infnet.playerrank.clients.IEnderecoClient;
+import br.edu.infnet.playerrank.model.domain.Endereco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,8 @@ import br.edu.infnet.playerrank.model.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
+	@Autowired
+	private IEnderecoClient enderecoClient;
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
@@ -34,5 +38,9 @@ public class UsuarioService {
 		}
 
 		return null;
+	}
+
+	public Endereco obterCep(String cep) {
+		return enderecoClient.obterCep(cep);
 	}
 }

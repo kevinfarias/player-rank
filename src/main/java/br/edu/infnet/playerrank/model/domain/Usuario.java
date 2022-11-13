@@ -2,13 +2,7 @@ package br.edu.infnet.playerrank.model.domain;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tusuario")
@@ -23,6 +17,9 @@ public class Usuario {
 	@JoinColumn(name = "idUsuario")
 	private List<Jogador> jogadores;
 
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "idendereco")
+	private Endereco endereco;
 	@Override
 	public String toString() {
 		return id + ";" + nome + ";" + email + ";" + senha;
@@ -66,5 +63,13 @@ public class Usuario {
 
 	public void setJogadores(List<Jogador> jogadores) {
 		this.jogadores = jogadores;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 }

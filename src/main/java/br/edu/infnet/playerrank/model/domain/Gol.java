@@ -4,7 +4,6 @@ import br.edu.infnet.playerrank.model.domain.enums.TipoDeGol;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tgol")

@@ -21,6 +21,29 @@
                     th:value="${jogador.id}" th:text="${jogador.nome}"></option>
             </select>
 	    </div>
+		<div class="form-group">
+	      <label>Gols:</label>
+				<div class="form-check" th:each="gol: ${gols}">
+				  <input class="form-check-input" type="checkbox" name="acoes" th:value="${gol.id}">
+				  <label class="form-check-label" th:text="${gol.nome}"></label>
+				</div>
+	    </div>
+
+		<div class="form-group">
+	      <label>Passes:</label>
+				<div class="form-check" th:each="passe: ${passes}">
+				  <input class="form-check-input" type="checkbox" name="acoes" th:value="${passe.id}">
+				  <label class="form-check-label" th:text="${passe.nome}"></label>
+				</div>
+	    </div>
+
+		<div class="form-group">
+	      <label>Dribles:</label>
+				<div class="form-check" th:each="drible: ${dribles}">
+				  <input class="form-check-input" type="checkbox" name="acoes" th:value="${drible.id}">
+				  <label class="form-check-label" th:text="${drible.nome}"></label>
+				</div>
+	    </div>
 		<div class="mt-5"></div>
 	    <button type="submit" class="btn btn-default btn-outline-success">Cadastrar</button>
 	  </form>

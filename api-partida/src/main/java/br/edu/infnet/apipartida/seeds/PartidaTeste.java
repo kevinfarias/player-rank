@@ -1,8 +1,8 @@
-package br.edu.infnet.playerrank.seeds;
+package br.edu.infnet.apipartida.seeds;
 
-import br.edu.infnet.playerrank.model.domain.Partida;
-import br.edu.infnet.playerrank.model.repository.PartidaRepository;
-import br.edu.infnet.playerrank.model.service.PartidaService;
+import br.edu.infnet.apipartida.model.domain.Partida;
+import br.edu.infnet.apipartida.model.repository.PartidaRepository;
+import br.edu.infnet.apipartida.model.service.PartidaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

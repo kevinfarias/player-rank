@@ -1,6 +1,6 @@
-package br.edu.infnet.playerrank.model.repository;
+package br.edu.infnet.apipartida.model.repository;
 
-import br.edu.infnet.playerrank.model.domain.Partida;
+import br.edu.infnet.apipartida.model.domain.Partida;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

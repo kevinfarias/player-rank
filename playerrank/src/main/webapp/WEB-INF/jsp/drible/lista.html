@@ -1,0 +1,28 @@
+ <!DOCTYPE html>
+<html
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   lang="en"
+   layout:decorate="~{templates/layout}">
+   <div layout:fragment="content">
+      <h3>Dribles</h3>
+      <a href="/drible">Inserir novo drible</a>
+      <table class="table">
+         <thead>
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col">Completo</th>
+               <th scope="col">Gerou falta?</th>
+               <th scope="col">Acoes</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr th:each="drible, row: ${listagem}">
+               <th scope="row" th:text="${drible.id}"></th>
+               <td th:text="${drible.isCompleto() ? 'Sim' : 'Nao'}"></td>
+               <td th:text="${drible.gerouFalta() ? 'Sim' : 'Nao'}"></td>
+               <td><a th:href="@{/drible/{id}/excluir(id=${drible.id})}">excluir</a></td>
+           </tr>
+         </tbody>
+      </table>
+   </div>
+</html>

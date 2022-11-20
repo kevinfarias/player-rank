@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   lang="en"
+   layout:decorate="~{templates/layout}">
+   <div layout:fragment="content">
+     <h2>Partida</h2>
+     <form action="/partida" method="post">
+	    <div class="form-group">
+	      <label>Local:</label>
+	      <input type="text" class="form-control" placeholder="Digite o local" name="local">
+	    </div>
+	    <div class="form-group">
+	      <label>Time 1:</label>
+	      <input type="text" class="form-control" placeholder="Digite o time 1" name="time1">
+	    </div>
+	    <div class="form-group">
+	      <label>Time 2:</label>
+	      <input type="text" class="form-control" placeholder="Digite o time 2" name="time2">
+	    </div>
+	    <div class="form-group">
+	      <label>Data/hora da partida:</label>
+	      <input type="date" class="form-control" placeholder="Data/hora da partida" name="data">
+	    </div>
+		 <div class="mt-5"></div>
+	    <button type="submit" class="btn btn-default btn-outline-success">Cadastrar</button>
+	  </form>
+   </div>
+</html>

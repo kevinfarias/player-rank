@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   lang="en"
+   layout:decorate="~{templates/layout}">
+   <div layout:fragment="content">
+      <h3>Partidas dos Jogadores</h3>
+      <a href="/jogadorpartida">Inserir novo jogador/partida</a>
+      <table class="table">
+         <thead>
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col">Partida</th>
+               <th scope="col">Foi vencedor?</th>
+               <th scope="col">Pontos Total</th>
+               <th scope="col">Qtd. Acoes</th>
+               <th scope="col">Acoes</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr th:each="jogadorPartida, row: ${listagem}">
+               <th scope="row" th:text="${jogadorPartida.getId()}"></th>
+               <td>[[${jogadorPartida.getPartida()?.getTime1()}]] vs [[${jogadorPartida.getPartida()?.getTime2()}]]</td>
+               <td th:text="${jogadorPartida.isVencedor() ? 'Sim' : 'Nao'}"></td>
+               <td th:text="${jogadorPartida.getPontosTotal()}"></td>
+               <td th:text="${jogadorPartida.getAcoes().size()}"></td>
+               <td><a th:href="@{/jogadorpartida/{id}/excluir(id=${jogadorPartida.getId()})}">excluir</a></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</html>

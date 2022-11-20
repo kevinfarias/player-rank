@@ -15,6 +15,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 
+
 	@GetMapping(value = "/usuario/lista")
 	public String telaLista(Model model) {
 		model.addAttribute("listagem", usuarioService.obterLista());
